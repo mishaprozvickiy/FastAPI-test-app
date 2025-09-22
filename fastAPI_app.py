@@ -1,10 +1,12 @@
 from fastapi import FastAPI, HTTPException, Response, Path, Body
 from fastapi.responses import HTMLResponse, JSONResponse, PlainTextResponse
 from fastapi.encoders import jsonable_encoder
+from fastapi.middleware.cors import CORSMiddleware
 import uvicorn
 from pydantic import BaseModel, Field, ConfigDict, EmailStr
 
 app = FastAPI()
+app.add_middleware(CORSMiddleware, allow_origins=["*"])
 
 books = [
     {
