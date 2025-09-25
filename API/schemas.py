@@ -1,9 +1,9 @@
-from pydantic import BaseModel, ConfigDict
+from pydantic import BaseModel, ConfigDict, Field
 
 
 class TaskAdd(BaseModel):
-    name: str
-    description: str | None = None
+    name: str = Field(max_length=40)
+    description: str | None = Field(None, max_length=60)
 
 
 class Task(TaskAdd):

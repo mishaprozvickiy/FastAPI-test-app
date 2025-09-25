@@ -10,6 +10,11 @@ async def add_task(task: Annotated[TaskAdd, Depends()]) -> TaskId:
     task_id = await TaskRepository.add_one(task)
     return {"status": "ok", "task_id": task_id}
 
+# @router.post("/change")
+# async def change_task(task: Annotated[TaskAdd, Depends()]) -> TaskId:
+#     task_id = await TaskRepository.add_one(task)
+#     return {"status": "ok", "task_id": task_id}
+
 @router.get("/read")
 async def read_tasks() -> list[Task]:
     tasks = await TaskRepository.read_all()
