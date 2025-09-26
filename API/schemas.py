@@ -14,3 +14,8 @@ class Task(TaskAdd):
 class TaskId(BaseModel):
     status: str = "ok"
     task_id: int
+
+
+class TaskIdError(BaseModel):
+    status: str = "error"
+    message: str = "bad index entered"
